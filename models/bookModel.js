@@ -5,6 +5,7 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 var bookSchema = new Schema({
+    _id: {type: Number},
     title:    { type: String },
     isbn:     { type: String },
     pageCount: {type: Number},
