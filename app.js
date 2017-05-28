@@ -45,4 +45,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+mongoose.connect('mongodb://localhost/webtools', function(err, res) {
+    if (err) {
+        console.log('ERROR: connecting to Database. ' + err);
+    }else{
+        console.log('Connected to Database.');
+    }});
 module.exports = app;
