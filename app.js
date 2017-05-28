@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var index = require('./routes/index');
+var api = require('./routes/api');
 var users = require('./routes/users');
 
 var mongoose = require('mongoose');
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', index);
+app.use('/api', api);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -45,4 +45,11 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+mongoose.connect('mongodb://localhost/webtools', function(err, res) {
+    if (err) {
+        console.log('ERROR: connecting to Database. ' + err);
+    }else{
+        console.log('Connected to Database.');
+    }});
 module.exports = app;
