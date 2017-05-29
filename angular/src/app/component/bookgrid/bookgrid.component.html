@@ -1,0 +1,12 @@
+<div class="container top-30">
+  <div class="card-columns">
+    <div class="card" style="background-color: rgba(100, 100, 100, 0.3);"
+         *ngFor="let book of books">
+      <img class="card-img-top" [routerLink]="['/books',book._id]" [src]="book.thumbnailUrl | withoutphoto" alt="" class="img-fluid img-thumbnail">
+      <div class="card-block">
+        <p class="card-text text-muted">{{book.title}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

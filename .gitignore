@@ -59,3 +59,10 @@ fabric.properties
 
 #NPM Modules files
 node_modules/
+
+# System Files
+.DS_Stored
+Thumbs.db
+
+#Angular2 build files
+dist/

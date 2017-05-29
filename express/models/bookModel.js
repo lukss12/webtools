@@ -17,4 +17,6 @@ var bookSchema = new Schema({
     categories: {type: [String]}
 });
 
-module.exports.simpleModel = mongoose.model('book', bookSchema);
+bookSchema.index({title: 'text'});
+
+module.exports.bookModel = mongoose.model('book', bookSchema);
