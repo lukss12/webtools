@@ -6,13 +6,16 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-var simpleCtrl = require('../controllers/bookController');
+var booksCtrl = require('../controllers/bookController');
 
 // API routes
 
 router.route('/books')
-    .get(simpleCtrl.findAllBooks)
-    .post(simpleCtrl.addBook);
+    .get(booksCtrl.findAllBooks)
+    .post(booksCtrl.addBook);
+
+router.route('/books/:id')
+    .get(booksCtrl.findBook);
 
 
 module.exports = router;

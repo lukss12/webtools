@@ -13,6 +13,16 @@ module.exports.findAllBooks = function(req, res) {
     });
 };
 
+//GET - Return book with certain id
+module.exports.findBook = function(req, res) {
+    bookModel.findOne({ '_id': req.params.id},function(err, books) {
+        if(err) res.send(500, err.message);
+
+        console.log('GET /webtools ' + req.params.id);
+        res.status(200).jsonp(books);
+    });
+};
+
 //POST - Insert a new bookModel in the DB
 module.exports.addBook = function(req, res) {
     console.log('POST');
