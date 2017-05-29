@@ -5,7 +5,6 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 var bookSchema = new Schema({
-    _id: {type: Number},
     title:    { type: String },
     isbn:     { type: String },
     pageCount: {type: Number},
@@ -13,6 +12,8 @@ var bookSchema = new Schema({
     thumbnailUrl: {type: String},
     shortDescription: {type: String},
     longDescription: {type: String},
+    status: {type: String},
+    authors: {type: [String]},
     categories: {type: [String]}
 });
 
