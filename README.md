@@ -1,6 +1,16 @@
 # Webtools
 Webtools assignment simple MEAN app
 
+## Dependencies
+
+### MongoDB
+
+Latest version of MongoDB running in the system
+
+### NodeJS and NPM
+
+Latest NodeJS and NPM installed in the system
+
 ## Prepare Database
 
 ### Import the dataset
@@ -14,6 +24,14 @@ Run in your mongodb terminal:
 `use webtools`
 
 `db.books.createIndex({title: "text"})`
+
+## Setting Up the Project
+
+### Installing Dependencies' Packages
+
+Run in terminal in the project's root folder (someFolder/webtools):
+
+`npm install`
 
 ## Backend - Express
 
