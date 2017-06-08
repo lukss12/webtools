@@ -1,8 +1,8 @@
 <div class="container top-30">
   <div class="card-columns">
-    <div class="card" style="background-color: rgba(100, 100, 100, 0.3);"
+    <div class="card text-center" style="background-color: rgba(100, 100, 100, 0.3);"
          *ngFor="let book of books">
-      <img class="card-img-top" [routerLink]="['/books',book._id]" [src]="book.thumbnailUrl | withoutphoto" alt="" class="img-fluid img-thumbnail">
+      <img class="card-img-top thumbnail-fixed-size img-fluid" [routerLink]="['/books',book._id]" [src]="book.thumbnailUrl | withoutphoto" alt="">
       <div class="card-block">
         <p class="card-text text-muted">{{book.title}}</p>
       </div>

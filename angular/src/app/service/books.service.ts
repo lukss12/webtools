@@ -8,12 +8,12 @@ import {Book} from "../app.component";
 @Injectable()
 export class BooksService {
 
-  searchUrl:string = "http://localhost:7000/api/books/";
+  searchUrl:string = "http://localhost:7000/api/";
 
   constructor( private httpModule: Http ) { }
 
   getBooks() : Observable<Book[]>{
-    let url = this.searchUrl;
+    let url = this.searchUrl + 'books/';
 
     return this.httpModule.get(url)
       .map(this.extractData)
@@ -21,7 +21,15 @@ export class BooksService {
   }
 
   getBook(id: String) : Observable<Book>{
-    let url = this.searchUrl + id;
+    let url = this.searchUrl + 'books/' + id;
+
+    return this.httpModule.get(url)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+
+  searchBook(searchTerm: String) : Observable<Book[]>{
+    let url = this.searchUrl + 'search?q=' + searchTerm;
 
     return this.httpModule.get(url)
       .map(this.extractData)

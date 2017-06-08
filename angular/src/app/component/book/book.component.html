@@ -1,9 +1,22 @@
-<app-navbar></app-navbar>
-<div class="container top-30">
-  <button (click)="goBack()">Back</button>
-  <div *ngIf="book" class="col-md-2 text-center puntero">
-    <img class="portrait" [routerLink]="['/books',book._id]" [src]="book.thumbnailUrl | withoutphoto" alt="" class="img-fluid img-thumbnail">
-    <p class="bottom">{{book.title}}</p>
+<div *ngIf="book" class="jumbotron">
+  <div class="row">
+    <div class="col-md-10">
+      <h1 class="display-3"><p class="bottom">{{book.title}}</p></h1>
+        <p *ngIf="book.longDescription" class="lead">{{book.longDescription}}</p>
+        <p *ngIf="book.shortDescription && !book.longDescription" class="lead">{{book.shortDescription}}</p>
+        <p *ngIf="!book.longDescription && !shortDescription" class="lead">No description available</p>
+    </div>
+    <div class="col-md-2 text-center puntero">
+      <img class="img-fluid portrait portrait-image" [src]="book.thumbnailUrl | withoutphoto" alt="">
+    </div>
+  </div>
+  <hr class="my-4">
+  <p *ngIf="book.isbn" class="lead">ISBN: {{book.isbn}}</p>
+  <p *ngIf="book.pageCount" class="lead">Page Count: {{book.pageCount}}</p>
+  <p *ngIf="book.publishedDate" class="lead">Published Date: {{book.publishedDate | date: "MM/dd/yyyy"}}</p>
+  <p *ngIf="book.authors || book.authors.lenght" class="lead">Author/s:</p>
+  <div *ngFor="let author of book.authors">
+    <p class="lead">{{author}}</p>
   </div>
 </div>
 <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>

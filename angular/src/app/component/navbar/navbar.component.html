@@ -11,8 +11,26 @@
       </li>
     </ul>
     <form class="form-inline mt-2 mt-md-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <input [(ngModel)]="term"
+             (keyup)="searchBook()"
+             class="form-control mr-sm-2" type="text" name="term" value="" placeholder="Search for book">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
+<div class="container top-30" style="background-color: rgba(50, 100, 100, 0.2);">
+  <h2>
+    <p class="text-success" *ngIf="searchBooks.length">Search Results:</p>
+    <p class="text-warning" *ngIf="(searchBooks.length == 0) && term.length">Not Match Found:</p>
+  </h2>
+  <div class="card-columns">
+    <div class="card text-center" style="background-color: rgba(100, 100, 100, 0.3);"
+         *ngFor="let book of searchBooks">
+      <img class="card-img-top thumbnail-fixed-size img-fluid" [routerLink]="['/books',book._id]" [src]="book.thumbnailUrl | withoutphoto" alt="">
+      <div class="card-block">
+        <p class="card-text text-muted">{{book.title}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+

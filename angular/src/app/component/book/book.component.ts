@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {Book} from "../../app.component";
+import {AppComponent, Book} from "../../app.component";
 import {BooksService} from "../../service/books.service";
 import {ActivatedRoute, Params} from "@angular/router";
 import { Location } from '@angular/common';
 
 import 'rxjs/add/operator/switchMap';
+import {NavbarComponent} from "../navbar/navbar.component";
 
 @Component({
   selector: 'app-book',
@@ -28,7 +29,8 @@ export class BookComponent implements OnInit {
     .switchMap((params: Params) => this.booksService.getBook(params['id']))
     .subscribe(
       book =>  this.book = book,
-      error => this.errorMessage = <any>error);
+      error => this.errorMessage = <any>error
+    );
   }
 
   goBack(): void {

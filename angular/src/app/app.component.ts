@@ -13,4 +13,10 @@ export class Book {
   _id: number;
   title: string;
   thumbnailUrl: string;
+  pageCount: number;
+  publishedDate: Date;
+  longDescription: string;
+  shortDescription: string;
+  isbn: number;
+  authors: String[];
 }
