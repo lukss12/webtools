@@ -56,6 +56,8 @@ Run `npm run start-dev` to start the server listening for file changes
 
 Run `npm run start` to start production server
 
+The Server will run on `http://localhost:7000`
+
 ## Frontend - AngularCLI
 
 ### Build
